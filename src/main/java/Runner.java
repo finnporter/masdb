@@ -12,6 +12,12 @@ public class Runner {
 
         Breeder breeder = new Breeder("Finn", "Porter", "UK");
         DBBreeder.saveBreeder(breeder);
-        System.out.println("All breeders: " + DBBreeder.getAllBreeders());
+        System.out.println("Orig breeder: " + breeder.getCountry());
+
+
+        breeder.setCountry("United Kingdom");
+
+        DBBreeder.updateBreederById(breeder);
+        System.out.println("Updated Breeder: " + breeder.getCountry());
     }
 }

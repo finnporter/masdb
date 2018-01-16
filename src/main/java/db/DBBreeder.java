@@ -59,4 +59,18 @@ public class DBBreeder {
             session.close();
         }
     }
+
+    public static void updateBreederById(Breeder breeder) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            session.update(breeder);
+            transaction.commit();
+        } catch (HibernateException ex) {
+            transaction.rollback();
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }
