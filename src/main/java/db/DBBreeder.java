@@ -44,6 +44,25 @@ public class DBBreeder {
         return allBreeders;
     }
 
+    public static void findBreederById(int int) {
+
+        session = HibernateUtil.getSessionFactory().openSession();
+        Breeder breeder = null;
+        try {
+            transaction = session.beginTransaction();
+            String sql = "from Breeder where id = :id";
+            Query query = session.createQuery(sql);
+            query.setInteger("id", id);
+            breeder = (Breeder) query.uniqueResult();
+            transaction.commit();
+        } catch (HibernateException ex) {
+            transaction.rollback();
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
 
     public static void updateBreederById(Breeder breeder) {
         session = HibernateUtil.getSessionFactory().openSession();
