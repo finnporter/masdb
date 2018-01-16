@@ -36,13 +36,13 @@ public class BreederTest {
 
     @Test
     public void canHaveLastName() {
-        assertEquals("Port", breeder.getLastLame());
+        assertEquals("Port", breeder.getLastName());
     }
 
     @Test
     public void canSetLastName() {
         breeder.setLastName("Porter");
-        assertEquals("Porter", breeder.getLastLame());
+        assertEquals("Porter", breeder.getLastName());
     }
 
     @Test

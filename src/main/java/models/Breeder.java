@@ -3,13 +3,13 @@ package models;
 public class Breeder {
 
     private int id;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String country;
 
-    public Breeder(String first_name, String last_name, String country) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public Breeder(String firstName, String lastName, String country) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.country = country;
     }
 
@@ -18,20 +18,24 @@ public class Breeder {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
-        return first_name;
+        return firstName;
     }
 
-    public void setFirstName(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastLame() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastName(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getCountry() {
