@@ -56,8 +56,9 @@ public class BreederTest {
         assertEquals("United Kingdom", breeder.getCountry());
     }
 
-    @Test
+//    @Test
     public void canSaveBreeder() {
+        dbBreeder.deleteAllBreeders();
         dbBreeder.saveBreeder(breeder);
         List<Breeder> allBreeders = dbBreeder.getAllBreeders();
         assertEquals(1, allBreeders.size());
