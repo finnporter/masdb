@@ -7,6 +7,8 @@ public class Breeder {
     private String lastName;
     private String country;
 
+    public Breeder() {};
+
     public Breeder(String firstName, String lastName, String country) {
         this.firstName = firstName;
         this.lastName = lastName;
