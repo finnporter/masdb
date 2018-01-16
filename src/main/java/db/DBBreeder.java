@@ -44,7 +44,7 @@ public class DBBreeder {
         return allBreeders;
     }
 
-    public static void findBreederById(int int) {
+    public static Breeder findBreederById(int id) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         Breeder breeder = null;
@@ -61,6 +61,8 @@ public class DBBreeder {
         } finally {
             session.close();
         }
+
+        return breeder;
     }
 
 
