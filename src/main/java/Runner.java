@@ -8,6 +8,8 @@ public class Runner {
 
     public static void main(String[] args) {
 
+        DBBreeder.deleteAllBreeders();
+
         Breeder breeder = new Breeder("Finn", "Porter", "UK");
         DBBreeder.saveBreeder(breeder);
         System.out.println("All breeders: " + DBBreeder.getAllBreeders());
