@@ -8,16 +8,19 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        DBBreeder.deleteAllBreeders();
+//        DBBreeder.deleteAllBreeders();
+//
+//        Breeder breeder = new Breeder("Finn", "Porter", "UK");
+//        DBBreeder.saveBreeder(breeder);
+//        System.out.println("Orig breeder: " + breeder.getCountry());
+//
+//
+//        breeder.setCountry("United Kingdom");
+//
+//        DBBreeder.updateBreederById(breeder);
+//        System.out.println("Updated Breeder: " + breeder.getCountry());
 
-        Breeder breeder = new Breeder("Finn", "Porter", "UK");
-        DBBreeder.saveBreeder(breeder);
-        System.out.println("Orig breeder: " + breeder.getCountry());
-
-
-        breeder.setCountry("United Kingdom");
-
-        DBBreeder.updateBreederById(breeder);
-        System.out.println("Updated Breeder: " + breeder.getCountry());
+        DBBreeder.deleteBreederById(10);
+        System.out.println("all breeders: " + DBBreeder.getAllBreeders());
     }
 }

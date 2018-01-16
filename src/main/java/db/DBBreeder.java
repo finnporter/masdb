@@ -13,6 +13,21 @@ public class DBBreeder {
     private static Transaction transaction;
     private static Session session;
 
+    public static void saveBreeder(Breeder breeder) {
+
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            session.save(breeder);
+            transaction.commit();
+        } catch (HibernateException ex) {
+            transaction.rollback();
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
     public static List<Breeder> getAllBreeders() {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Breeder> allBreeders = null;
@@ -29,12 +44,12 @@ public class DBBreeder {
         return allBreeders;
     }
 
-    public static void saveBreeder(Breeder breeder) {
 
+    public static void updateBreederById(Breeder breeder) {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            session.save(breeder);
+            session.update(breeder);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -43,6 +58,7 @@ public class DBBreeder {
             session.close();
         }
     }
+
 
     public static void deleteAllBreeders() {
 
@@ -60,11 +76,19 @@ public class DBBreeder {
         }
     }
 
-    public static void updateBreederById(Breeder breeder) {
+
+    public static void deleteBreederById(int id) {
+
         session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        Breeder breeder = null;
         try {
             transaction = session.beginTransaction();
-            session.update(breeder);
+            String sql = "from Breeder where id = :id";
+            Query query = session.createQuery(sql);
+            query.setInteger("id", id);
+            breeder = (Breeder) query.uniqueResult();
+            session.delete(breeder);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
