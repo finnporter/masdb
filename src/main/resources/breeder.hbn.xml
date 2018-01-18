@@ -11,6 +11,12 @@
         <property name="firstName" column="first_name" type="string" />
         <property name="lastName" column="last_name" type="string" />
         <property name="country" column="country" type="string" />
+        <set name="dogs" inverse="true" cascade="all">
+            <key>
+                <column name="dog_id" not-null="true" />
+            </key>
+            <one-to-many class="models.Dog" />
+        </set>
 
         <!--TODO insert one to many relationship with dogs-->
     </class>

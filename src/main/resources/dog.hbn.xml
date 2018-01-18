@@ -29,6 +29,6 @@
         <property name="igs" column="igs" type="string" />
         <property name="dm" column="dm" type="string" />
         <property name="owner" column="owner" type="string" />
-        <!--TODO insert breeder relationship-->
+        <many-to-one name="breeder" class="models.Breeder" column="breeder_id" lazy="false" not-null="true"/>
     </class>
 </hibernate-mapping>
