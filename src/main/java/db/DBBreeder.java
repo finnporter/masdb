@@ -67,6 +67,7 @@ public class DBBreeder {
 
 
     public static void updateBreederById(Breeder breeder) {
+//        TODO refactor to go by id
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();

@@ -1,6 +1,5 @@
 package db;
 
-
 import models.Dog;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -68,6 +67,7 @@ public class DBDog {
 
 
     public static void updateDogbyId(Dog dog) {
+//        TODO refactor to go by Id
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
