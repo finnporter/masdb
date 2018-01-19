@@ -1,6 +1,6 @@
 package db;
 
-import models.Breeder;
+import models.Dog;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -8,17 +8,17 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class DBBreeder {
+public class DBDog {
 
     private static Transaction transaction;
     private static Session session;
 
-    public static void saveBreeder(Breeder breeder) {
+    public static void saveDog(Dog dog) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            session.save(breeder);
+            session.save(dog);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -28,12 +28,12 @@ public class DBBreeder {
         }
     }
 
-    public static List<Breeder> getAllBreeders() {
+    public static List<Dog> getAllDogs() {
         session = HibernateUtil.getSessionFactory().openSession();
-        List<Breeder> allBreeders = null;
+        List<Dog> allDogs = null;
         try {
             transaction = session.beginTransaction();
-            allBreeders = session.createQuery("from Breeder").list();
+            allDogs = session.createQuery("from Dog").list();
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -41,19 +41,19 @@ public class DBBreeder {
         } finally {
             session.close();
         }
-        return allBreeders;
+        return allDogs;
     }
 
-    public static Breeder findBreederById(int id) {
+    public static Dog findDogbyId(int id) {
 
         session = HibernateUtil.getSessionFactory().openSession();
-        Breeder breeder = null;
+        Dog dog = null;
         try {
             transaction = session.beginTransaction();
-            String sql = "from Breeder where id = :id";
+            String sql = "from Dog where id = :id";
             Query query = session.createQuery(sql);
             query.setInteger("id", id);
-            breeder = (Breeder) query.uniqueResult();
+            dog = (Dog) query.uniqueResult();
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -62,16 +62,16 @@ public class DBBreeder {
             session.close();
         }
 
-        return breeder;
+        return dog;
     }
 
 
-    public static void updateBreederById(Breeder breeder) {
-//        TODO refactor to go by id
+    public static void updateDogbyId(Dog dog) {
+//        TODO refactor to go by Id
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            session.update(breeder);
+            session.update(dog);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -82,12 +82,12 @@ public class DBBreeder {
     }
 
 
-    public static void deleteAllBreeders() {
+    public static void deleteAllDogs() {
 
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            String sql = String.format("delete from %s", "Breeder");
+            String sql = String.format("delete from %s", "Dog");
             Query query = session.createQuery(sql);
             query.executeUpdate();
         } catch (HibernateException ex) {
@@ -99,18 +99,18 @@ public class DBBreeder {
     }
 
 
-    public static void deleteBreederById(int id) {
+    public static void deleteDogById(int id) {
 
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
-        Breeder breeder = null;
+        Dog dog = null;
         try {
             transaction = session.beginTransaction();
-            String sql = "from Breeder where id = :id";
+            String sql = "from Dog where id = :id";
             Query query = session.createQuery(sql);
             query.setInteger("id", id);
-            breeder = (Breeder) query.uniqueResult();
-            session.delete(breeder);
+            dog = (Dog) query.uniqueResult();
+            session.delete(dog);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="models.Dog" table="dogs">
+        <id name="id" type="int" column="dog_id">
+            <generator class="identity" />
+        </id>
+        <property name="nickName" column="nick_name" type="string" />
+        <property name="akcName" column="akc_name" type="string" />
+        <property name="akcRegNum" column="ack_reg_num" type="string" />
+        <property name="kcName" column="kc_name" type="string" />
+        <property name="kcRegNum" column="kc_reg_num" type="string" />
+        <property name="dob" column="dob" type="int" />
+        <property name="sex" column="sex" type="char" />
+        <property name="colour" column="colour" type="string" />
+        <property name="height" column="height" type="double" />
+        <property name="weight" column="weight" type="double" />
+        <property name="tail" column="tail" type="string" />
+        <property name="bvaHips" column="bva_hips" type="string" />
+        <property name="bvaElbows" column="bva_elbows" type="string" />
+        <property name="ceaCh" column="cea_ch" type="string" />
+        <property name="gpra" column="gpra" type="string" />
+        <property name="hsf4" column="hsf4" type="string" />
+        <property name="cmr1" column="cmr1" type="string" />
+        <property name="mdr1" column="mdr1" type="string" />
+        <property name="igs" column="igs" type="string" />
+        <property name="dm" column="dm" type="string" />
+        <property name="owner" column="owner" type="string" />
+        <many-to-one name="breeder" class="models.Breeder" column="breeder_id" lazy="false" not-null="true"/>
+    </class>
+</hibernate-mapping>

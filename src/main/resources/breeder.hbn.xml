@@ -12,6 +12,9 @@
         <property name="lastName" column="last_name" type="string" />
         <property name="country" column="country" type="string" />
 
-        <!--TODO insert one to many relationship with dogs-->
+        <set name="dogs" inverse="true" cascade="all">
+            <key column="breeder_id" not-null="true" />
+            <one-to-many class="models.Dog"/>
+        </set>
     </class>
 </hibernate-mapping>

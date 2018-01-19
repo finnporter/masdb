@@ -1,11 +1,14 @@
 package models;
 
+import java.util.Set;
+
 public class Breeder {
 
     private int id;
     private String firstName;
     private String lastName;
     private String country;
+    private Set<Dog> dogs;
 
     public Breeder() {};
 
@@ -46,5 +49,13 @@ public class Breeder {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Set<Dog> getDogs() {
+        return dogs;
+    }
+
+    public void setDogs(Set<Dog> dogs) {
+        this.dogs = dogs;
     }
 }
