@@ -8,8 +8,8 @@
         <id name="id" type="int" column="breeder_id">
             <generator class="identity" />
         </id>
-        <property name="firstName" column="first_name" type="string" />
-        <property name="lastName" column="last_name" type="string" />
+        <property name="firstName" column="first_name" type="string" not-null="true"/>
+        <property name="lastName" column="last_name" type="string" not-null="true" />
         <property name="country" column="country" type="string" />
 
         <set name="dogs" inverse="true" cascade="all">

@@ -66,11 +66,16 @@ public class DBDog {
     }
 
 
-    public static void updateDogbyId(Dog dog) {
+    public static void updateDogById(int id) {
 //        TODO refactor to go by Id
         session = HibernateUtil.getSessionFactory().openSession();
+        Dog dog = null;
         try {
             transaction = session.beginTransaction();
+            String sql = "from Dog where id = :id";
+            Query query = session.createQuery(sql);
+            query.setInteger("id", id);
+            dog = (Dog) query.uniqueResult();
             session.update(dog);
             transaction.commit();
         } catch (HibernateException ex) {
