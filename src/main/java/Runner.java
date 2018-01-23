@@ -23,10 +23,10 @@ public class Runner {
         breeder.setCountry("United Kingdom");
         dog1.setKcRegNum("UK987654321");
 
-        DBBreeder.updateBreederById(breeder);
+        DBBreeder.updateBreederById(breeder.getId());
         System.out.println("Updated Breeder: " + breeder.getCountry());
 
-        DBDog.updateDogbyId(dog1.getId());
+        DBDog.updateDogById(dog1.getId());
         System.out.println("Updated Dog: " + dog1.getKcRegNum());
 
         Breeder foundBreeder = DBBreeder.findBreederById(breeder.getId());

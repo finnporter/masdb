@@ -66,11 +66,17 @@ public class DBBreeder {
     }
 
 
-    public static void updateBreederById(Breeder breeder) {
-//        TODO refactor to go by id
+    public static void updateBreederById(int id) {
+
         session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        Breeder breeder = null;
         try {
             transaction = session.beginTransaction();
+            String sql = "from Breeder where id = :id";
+            Query query = session.createQuery(sql);
+            query.setInteger("id", id);
+            breeder = (Breeder) query.uniqueResult();
             session.update(breeder);
             transaction.commit();
         } catch (HibernateException ex) {

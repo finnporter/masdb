@@ -66,7 +66,7 @@ public class DBDog {
     }
 
 
-    public static void updateDogbyId(int id) {
+    public static void updateDogById(int id) {
 //        TODO refactor to go by Id
         session = HibernateUtil.getSessionFactory().openSession();
         Dog dog = null;
