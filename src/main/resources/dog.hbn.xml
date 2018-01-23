@@ -10,9 +10,9 @@
         </id>
         <property name="nickName" column="nick_name" type="string" />
         <property name="akcName" column="akc_name" type="string" />
-        <property name="akcRegNum" column="ack_reg_num" type="string" />
+        <property name="akcRegNum" column="ack_reg_num" type="string" unique="true" not-null="true"/>
         <property name="kcName" column="kc_name" type="string" />
-        <property name="kcRegNum" column="kc_reg_num" type="string" />
+        <property name="kcRegNum" column="kc_reg_num" type="string" unique="true" not-null="true"/>
         <property name="dob" column="dob" type="int" />
         <property name="sex" column="sex" type="char" />
         <property name="colour" column="colour" type="string" />

@@ -13,7 +13,6 @@ public class Runner {
         DBBreeder.deleteAllBreeders();
         DBDog.deleteAllDogs();
 
-
         Breeder breeder = new Breeder("Finn", "Porter", "UK");
         DBBreeder.saveBreeder(breeder);
         System.out.println("Orig breeder: " + breeder.getCountry());
@@ -27,7 +26,7 @@ public class Runner {
         DBBreeder.updateBreederById(breeder);
         System.out.println("Updated Breeder: " + breeder.getCountry());
 
-        DBDog.updateDogbyId(dog1);
+        DBDog.updateDogbyId(dog1.getId());
         System.out.println("Updated Dog: " + dog1.getKcRegNum());
 
         Breeder foundBreeder = DBBreeder.findBreederById(breeder.getId());
